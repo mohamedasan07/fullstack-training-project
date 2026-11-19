@@ -1,23 +1,19 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Navbar from "./components/Navbar";
-import Home from "./Pages/Home";
-import About from "./Pages/About";
-import Contact from "./Pages/Contact";
-import NotFound from "./Pages/NotFound";
-import "./App.css";
+
+import React, { useState } from 'react';
+import './App.css';
 
 function App() {
-  return (
-    <BrowserRouter>
-      <Navbar />
+  const [count, setCount] = useState(0);
 
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="*" element={<NotFound />} />
-      </Routes>
-    </BrowserRouter>
+  return (
+    <div className="container">
+      <h1>OOPS Counter</h1>
+      <h2>{count}</h2>
+
+      <button onClick={() => setCount(count + 1)}>Increment +</button>
+      <button onClick={() => setCount(count - 1)}>Decrement -</button>
+      <button onClick={() => setCount(0)}>Reset</button>
+    </div>
   );
 }
 
